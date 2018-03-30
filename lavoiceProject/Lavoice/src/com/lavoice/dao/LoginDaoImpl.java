@@ -1,0 +1,24 @@
+package com.lavoice.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Component;
+
+import com.lavoice.bean.LoginResponse;
+
+@Component
+public class LoginDaoImpl implements LoginDao {
+	
+	@Autowired
+    MongoOperations mongoTemplate;
+ 
+    final String COLLECTION = "userInfo";
+    
+    public LoginResponse find(String username) {
+        Query query = new Query(Criteria.where("username").is(username));
+        return mongoTemplate.findOne(query, LoginResponse.class, COLLECTION);
+    }
+
+}
