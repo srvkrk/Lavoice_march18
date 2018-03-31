@@ -14,11 +14,14 @@ import com.lavoice.bean.LoggedInSession;
 import com.lavoice.bean.LoginRequest;
 import com.lavoice.bean.LoginResponse;
 import com.lavoice.dao.LoginDao;
+import com.lavoice.exception.ExceptionHandeler;
 import com.lavoice.json.response.LoginJsonResponse;
 
 @Service("loginService")
 public class LoginRequestImpl implements LoginService {
-	
+	private static String block;
+	@Autowired
+	  public ExceptionHandeler exp;
 	@Autowired
     private HttpSession session;
 	
@@ -50,6 +53,8 @@ public class LoginRequestImpl implements LoginService {
 			return body.getResponseMessage();
 			
 			}catch(Exception e){
+				block="login Service";
+	            exp.checkException(e,block);
 				body.setResponseError(e.toString());
 				return body.getResponseMessage();
 		}

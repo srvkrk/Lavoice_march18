@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lavoice.bean.LoggedInSession;
 import com.lavoice.bean.LoginRequest;
+import com.lavoice.exception.ExceptionHandeler;
 import com.lavoice.json.response.LoginJsonResponse;
 import com.lavoice.service.LoginService;
 
 @RestController
-public class JsonController {
-	
+public class LoginController {
+	private static String block;
+	@Autowired
+	  public ExceptionHandeler exp;
 	@Autowired
 	  public LoginService loginService;
 	@Autowired
@@ -49,6 +52,8 @@ public class JsonController {
 			LoginJsonResponse errorJosn = new LoginJsonResponse();
 			errorJosn.setResponseError(e.toString());
 			response = errorJosn.getResponseMessage();
+			block="login controller block";
+	        exp.checkException(e,block);
 		}
 		
 		return new ResponseEntity<String>(response, HttpStatus.OK);

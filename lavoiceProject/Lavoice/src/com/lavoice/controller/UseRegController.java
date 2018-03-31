@@ -18,7 +18,7 @@ import com.lavoice.json.response.RegistrationJsonResponse;
 import com.lavoice.service.RegistrationService;
 
 @RestController
-public class UserAuthController {
+public class UseRegController {
 	
 	@Autowired
 	  public RegistrationService userService;
@@ -63,7 +63,7 @@ public class UserAuthController {
 	
 	 @RequestMapping(value = "/verifyEmail", method = RequestMethod.GET)
 	  public ModelAndView showLogin(@RequestParam("str") String mailLink) throws JSONException {
-		String response = userService.verifyUser(mailLink);
+		String response = userService.verifyMail(mailLink);
 		System.out.println(response);
 	    ModelAndView mav = new ModelAndView("WEB-INF/jsp/success.jsp");
 	    return mav;

@@ -10,10 +10,13 @@ import org.springframework.stereotype.Component;
 
 import com.lavoice.bean.RegistrationRequest;
 import com.lavoice.bean.RegistrationResponse;
+import com.lavoice.exception.ExceptionHandeler;
 
 @Component
 public class RegistrationDaoImpl implements RegistrationDao {
-
+	private static String block;
+	@Autowired
+	  public ExceptionHandeler exp;
 	@Autowired
     MongoOperations mongoTemplate;
  
@@ -26,13 +29,24 @@ public class RegistrationDaoImpl implements RegistrationDao {
 	}
 	
 	public void verifyUser(String id, String username) {
-		Query query = new Query();
-		query.addCriteria(Criteria.where("_id").is(id).and("username").is(username));
-		Update update = new Update();
-		update.set("emailVerified", "Y");
-		mongoTemplate.findAndModify(
-				query, update, 
-				new FindAndModifyOptions().returnNew(true), RegistrationResponse.class, COLLECTION);
+		
+	
+		try{
+    		
+			Query query = new Query();
+			query.addCriteria(Criteria.where("_id").is(id).and("username").is(username));
+			Update update = new Update();
+			update.set("emailVerified", "Y");
+			mongoTemplate.findAndModify(
+					query, update, 
+					new FindAndModifyOptions().returnNew(true), RegistrationResponse.class, COLLECTION);
+        }
+        catch(Exception e){
+        	block="reg Dao";
+            exp.checkException(e,block);
+        }
 	}
+	
+	
 
 }

@@ -28,10 +28,16 @@ import com.lavoice.bean.RegistrationRequest;
 import com.lavoice.bean.RegistrationResponse;
 import com.lavoice.dao.LoginDao;
 import com.lavoice.dao.RegistrationDao;
+import com.lavoice.exception.ExceptionHandeler;
 
 @Service("regService")
 public class RegistrationServiceImpl implements RegistrationService {
 
+	
+	private static String block;
+	@Autowired
+	  public ExceptionHandeler exp;
+	
 	 @Autowired
 	 RegistrationDao userDao;
 	 @Autowired
@@ -80,13 +86,15 @@ public class RegistrationServiceImpl implements RegistrationService {
 			 }
 			 
 		 }catch(Exception e){
+			 block="reg Service";
+	            exp.checkException(e,block);
 			 body.setResponseError(e.toString());
 			 return body.getResponseMessage();	 
 		 }
 		 
 	 }
 	 
-	 public String verifyUser(String mailLink) {
+	 public String verifyMail(String mailLink) {
 		 
 		 String response="";
 		 byte[] decodedBytes = Base64.getDecoder().decode(mailLink);
@@ -97,6 +105,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 			userDao.verifyUser(jsonObj.getString("id"), jsonObj.getString("username"));
 			response="Success";
 		 } catch (JSONException e) {
+			 block="reg Service mail verify";
+	            exp.checkException(e,block);
 			response=e.toString();
 		 }
 		 return response;

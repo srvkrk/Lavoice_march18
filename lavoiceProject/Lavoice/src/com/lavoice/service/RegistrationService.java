@@ -4,5 +4,5 @@ import com.lavoice.bean.RegistrationRequest;
 
 public interface RegistrationService {
 	String insertUser(RegistrationRequest user);
-	String verifyUser(String mailLink);
+	String verifyMail(String mailLink);
 }
