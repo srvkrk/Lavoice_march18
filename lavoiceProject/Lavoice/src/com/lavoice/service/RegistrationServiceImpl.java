@@ -55,7 +55,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 			 /*Start of password Encryption*/
 			 String  password = user.getPassword();
 			 
-			 int iterations = 1000;
+			 int iterations = getRandomInteger(9999, 99999);
 		     char[] chars = password.toCharArray();
 		     byte[] salt = getSalt();
 		         
@@ -112,7 +112,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 		 return response;
 	 }
 	 
-	 public void sendSimpleMessageUsingTemplate(String to,
+	 private static int getRandomInteger(int maximum, int minimum){ 
+		 return ((int) (Math.random()*(maximum - minimum))) + minimum; 
+		 }
+
+	 private void sendSimpleMessageUsingTemplate(String to,
              String subject,
              SimpleMailMessage template,
              String customer_name, String verify_mailLink) {
