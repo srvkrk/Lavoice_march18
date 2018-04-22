@@ -1,6 +1,6 @@
 package com.lavoice.util;
 
-public enum PollOptionType {
+public enum PollMediaType {
 
 	AUDIO("",2),
 	VIDEO("",3),
@@ -11,7 +11,7 @@ public enum PollOptionType {
 	private String name;
 	private int value;
 	
-	PollOptionType(String argName, int argValue){
+	PollMediaType(String argName, int argValue){
 		name = argName;
 		value = argValue;
 	}

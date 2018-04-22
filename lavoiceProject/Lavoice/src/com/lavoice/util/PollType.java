@@ -2,8 +2,9 @@ package com.lavoice.util;
 
 public enum PollType {
 
-	SINGLE("",1),
-	MULTIPLE("",2);
+	MCQ("",1),
+	OpenText("",2),
+	Ratting("",3);
 	
 	
 	private String name;

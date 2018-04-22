@@ -2,8 +2,8 @@ package com.lavoice.util;
 
 public enum PollPurposeType {
 
-	Private("",1),
-	Business("",2);
+	Private("Private",1),
+	Business("Business",2);
 	
 	private String name;
 	private int value;
@@ -11,5 +11,11 @@ public enum PollPurposeType {
 	PollPurposeType(String argName, int argValue){
 		name = argName;
 		value = argValue;
+	}
+	
+	public static PollPurposeType getEnum(String argString) {
+		//if(argString.equalsIgnoreCase(name)) return PollPurposeType.Private;
+		return PollPurposeType.Business;
+		
 	}
 }

@@ -1,19 +1,31 @@
 package com.lavoice.bean;
 
-public class PollOption<T> {
-	private String OptionMediaType;
-	private T OptionContent;
-	public String getOptionMediaType() {
+import com.lavoice.util.PollMediaType;
+
+public class PollOption  {
+	private PollMediaType OptionMediaType;
+	private String OptionContent;
+	private String OptionResultCount;
+	
+	public PollMediaType getOptionMediaType() {
 		return OptionMediaType;
 	}
-	public void setOptionMediaType(String optionMediaType) {
+	public void setOptionMediaType(PollMediaType optionMediaType) {
 		OptionMediaType = optionMediaType;
 	}
-	public T getOptionContent() {
+	public String getOptionContent() {
 		return OptionContent;
 	}
-	public void setOptionContent(T optionContent) {
+	public void setOptionContent(String optionContent) {
 		OptionContent = optionContent;
 	}
+	public String getOptionResultCount() {
+		return OptionResultCount;
+	}
+	public void setOptionResultCount(String optionResultCount) {
+		OptionResultCount = optionResultCount;
+	}
+	
+	
 
 }
