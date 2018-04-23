@@ -4,7 +4,7 @@ package com.lavoice.bean;
 public class Friend {
 	private String email;
 	private String username;
-	private String image;
+	private String profileImage;
 	public String getEmail() {
 		return email;
 	}
@@ -17,11 +17,11 @@ public class Friend {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getImage() {
-		return image;
+	public String getProfileImage() {
+		return profileImage;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
 	}
 	
 	

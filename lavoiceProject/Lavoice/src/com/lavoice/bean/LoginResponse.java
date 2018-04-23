@@ -10,11 +10,11 @@ public class LoginResponse {
     private String firstname;
     private String lastname;
     private String emailVerified;
-    private List<PollCreate> poll; 
-    private FriendList list;
-    private Group myGroups;
-    private NotificationRequestContent pollReq;
-    private NotificationRequestContent colaborationReq;
+    private List<PollCreate> poll;
+    private List<Friend> friendList;
+    private List<Group> myGroups;
+    private List<NotificationRequestContent> pollReq;
+    private List<NotificationRequestContent> colaborationReq;
 	
     
     public String getUserEmail() {
@@ -59,28 +59,28 @@ public class LoginResponse {
 	public void setPoll(List<PollCreate> poll) {
 		this.poll = poll;
 	}
-	public FriendList getList() {
-		return list;
+	public List<Friend> getFriendList() {
+		return friendList;
 	}
-	public void setList(FriendList list) {
-		this.list = list;
+	public void setFriendList(List<Friend> friendList) {
+		this.friendList = friendList;
 	}
-	public Group getMyGroups() {
+	public List<Group> getMyGroups() {
 		return myGroups;
 	}
-	public void setMyGroups(Group myGroups) {
+	public void setMyGroups(List<Group> myGroups) {
 		this.myGroups = myGroups;
 	}
-	public NotificationRequestContent getPollReq() {
+	public List<NotificationRequestContent> getPollReq() {
 		return pollReq;
 	}
-	public void setPollReq(NotificationRequestContent pollReq) {
+	public void setPollReq(List<NotificationRequestContent> pollReq) {
 		this.pollReq = pollReq;
 	}
-	public NotificationRequestContent getColaborationReq() {
+	public List<NotificationRequestContent> getColaborationReq() {
 		return colaborationReq;
 	}
-	public void setColaborationReq(NotificationRequestContent colaborationReq) {
+	public void setColaborationReq(List<NotificationRequestContent> colaborationReq) {
 		this.colaborationReq = colaborationReq;
 	}
     

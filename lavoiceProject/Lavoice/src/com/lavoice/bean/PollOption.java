@@ -7,6 +7,12 @@ public class PollOption  {
 	private String OptionContent;
 	private String OptionResultCount;
 	
+	public PollOption(PollMediaType OptionMediaType, String OptionContent, String OptionResultCount) {
+		this.OptionMediaType = OptionMediaType;
+		this.OptionContent = OptionContent;
+		this.OptionResultCount = OptionResultCount;
+	}
+	
 	public PollMediaType getOptionMediaType() {
 		return OptionMediaType;
 	}

@@ -3,17 +3,11 @@ package com.lavoice.bean;
 import java.util.List;
 
 public class Group {
-	private String userEmail;
 	private String groupId;
 	private String groupName;
 	private String groupImage;
 	private List<Friend> friend;
-	public String getUserEmail() {
-		return userEmail;
-	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
+	
 	public String getGroupId() {
 		return groupId;
 	}

@@ -1,14 +1,22 @@
 package com.lavoice.bean;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.io.Serializable;
 
-@Document(collection = "userInfo")
-public class LoginRequest {
+public class LoginRequest implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@com.owlike.genson.annotation.JsonProperty("username")
     private String username;
+	@com.owlike.genson.annotation.JsonProperty("password")
     private String password;
+
+    public LoginRequest() {
+        username="";
+        password="";
+    }
     
     public LoginRequest(String username, String password) {
-        super();
         this.setUsername(username);
         this.setPassword(password);
     }

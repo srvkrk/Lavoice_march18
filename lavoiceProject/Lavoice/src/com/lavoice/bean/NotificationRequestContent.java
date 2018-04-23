@@ -6,8 +6,6 @@ import com.lavoice.util.ReqType;
 public class NotificationRequestContent {
 	private String pollId;
 	private String pollUserEmail;
-	private String RequestedUserEmail;
-	private String image;
 	private String pollQuestion;
 	private String pollTitle;
 	private ReqStatus status;
@@ -23,18 +21,6 @@ public class NotificationRequestContent {
 	}
 	public void setPollUserEmail(String pollUserEmail) {
 		this.pollUserEmail = pollUserEmail;
-	}
-	public String getRequestedUserEmail() {
-		return RequestedUserEmail;
-	}
-	public void setRequestedUserEmail(String requestedUserEmail) {
-		RequestedUserEmail = requestedUserEmail;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public String getPollQuestion() {
 		return pollQuestion;
